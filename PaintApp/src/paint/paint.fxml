@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paint.PaintController">
+
+    <top>
+        <VBox>
+            <MenuBar>
+                <Menu text="File">
+                    <MenuItem onAction="#onSelectNewBlankCanvas" text="New Blank Canvas" />
+                    <MenuItem onAction="#onSelectNewColoredCanvas" text="New Colored Canvas" />
+                    <MenuItem onAction="#jpgOnSave" text="Save as JPEG" />
+                    <MenuItem onAction="#pngOnSave" text="Save as PNG" />
+                    <MenuItem onAction="#onExit" text="Exit" />
+                </Menu>
+            </MenuBar>
+            <ToolBar>
+                <HBox alignment="CENTER" spacing="5">
+                    <TextField fx:id="painterSize" text="15" />
+                    <ColorPicker fx:id="colorPicker" />
+                    <Button fx:id="pencil" onAction="#onSelectPencil">
+                  <graphic>
+                     <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="https://cdn4.iconfinder.com/data/icons/software-menu-icons/256/SoftwareIcons-68-512.png" />
+                        </image>
+                     </ImageView>
+                  </graphic></Button>
+                    <Button fx:id="brush" onAction="#onSelectBrush">
+                  <graphic>
+                     <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="https://cdn3.iconfinder.com/data/icons/metro-design/512/brush-512.png" />
+                        </image>
+                     </ImageView>
+                  </graphic></Button>
+                    <Button fx:id="fill" onAction="#onSelectFill">
+                  <graphic>
+                     <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="https://cdn.onlinewebfonts.com/svg/img_469834.png" />
+                        </image>
+                     </ImageView>
+                  </graphic></Button>
+                    <Button fx:id="eraser" onAction="#onSelectEraser">
+                  <graphic>
+                     <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="https://cdn1.iconfinder.com/data/icons/social-object-set-1-1/74/24-512.png" />
+                        </image>
+                     </ImageView>
+                  </graphic></Button>
+                    <Button fx:id="line" onAction="#onSelectLine">
+                  <graphic>
+                     <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="https://cdn.onlinewebfonts.com/svg/img_326126.png" />
+                        </image>
+                     </ImageView>
+                  </graphic></Button>
+                    <Button fx:id="circle" onAction="#onSelectCircle">
+                  <graphic>
+                     <ImageView fx:id="image" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="https://icons-for-free.com/iconfiles/png/512/check+circle+icon-1320184982103223133.png" />
+                        </image>
+                     </ImageView>
+                  </graphic></Button>
+                </HBox>
+            <Button mnemonicParsing="false" onAction="#onSelectRectangle">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="https://cdn1.iconfinder.com/data/icons/shapes/24/Rectangle-2-512.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            </ToolBar>
+        </VBox>
+    </top>
+
+    <center>
+        <Canvas fx:id="canvas" height="600.0" width="600.0" />
+    </center>
+</BorderPane>
